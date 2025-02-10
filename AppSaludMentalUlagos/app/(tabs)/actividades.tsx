@@ -2,44 +2,39 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { FontAwesome, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
-const HomeScreen = () => {
+const ActivitiesScreen = () => {
   return (
     <View style={styles.container}>
+    
+
       {/* Contenido Principal */}
       <ScrollView contentContainerStyle={styles.content}>
-        {/* Sección: ¿Cómo te sientes? */}
+        {/* Sección: Actividades Diarias */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>¿Cómo te sientes en este momento?</Text>
-          <View style={styles.emojiContainer}>
-            <Text style={styles.emoji}>😢</Text>
-            <Text style={styles.emoji}>😞</Text>
-            <Text style={styles.emoji}>😐</Text>
-            <Text style={styles.emoji}>😊</Text>
-            <Text style={styles.emoji}>😃</Text>
+          <Text style={styles.cardTitle}>Actividades Diarias</Text>
+          <View style={styles.activityList}>
+            <Text style={styles.activityItem}>• Actividad 1</Text>
+            <Ionicons name="checkbox-outline" size={24} color="white" />
+          </View>
+          <View style={styles.activityList}>
+            <Text style={styles.activityItem}>• Actividad 2</Text>
+            <Ionicons name="square-outline" size={24} color="white" />
           </View>
         </View>
 
-        {/* Sección: Revisar emociones */}
+        {/* Sección: Mejorar en un área */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>¿Quieres revisar tus emociones pasadas?</Text>
+          <Text style={styles.cardTitle}>¿Te gustaría mejorar en algún área?</Text>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Ver Registro de Emociones →</Text>
+            <Text style={styles.buttonText}>Seleccionar área →</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Sección: Actividades diarias */}
+        {/* Sección: Salud Mental */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Revisa tus actividades diarias</Text>
+          <Text style={styles.cardTitle}>¿Te gustaría informarte sobre salud mental?</Text>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Ver Actividades Diarias →</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Sección: Recomendaciones */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>¿Tienes pensamientos que quieres guardar?</Text>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Ver Diario de Pensamientos →</Text>
+            <Text style={styles.buttonText}>Visitar Aquí Contigo →</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -51,7 +46,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#A2C5EC", // Color de fondo
+    backgroundColor: "#A2C5EC", // Color de fondo similar a la imagen
   },
   header: {
     flexDirection: "row",
@@ -85,6 +80,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textAlign: "center",
   },
+  activityList: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 5,
+  },
+  activityItem: {
+    fontSize: 16,
+    color: "white",
+  },
   button: {
     backgroundColor: "#1E3A5F",
     padding: 10,
@@ -94,14 +99,6 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "center",
     fontSize: 14,
-  },
-  emojiContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 10,
-  },
-  emoji: {
-    fontSize: 20,
   },
   bottomNav: {
     flexDirection: "row",
@@ -125,4 +122,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default ActivitiesScreen;

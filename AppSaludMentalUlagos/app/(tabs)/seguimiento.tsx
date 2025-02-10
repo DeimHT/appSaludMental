@@ -2,16 +2,18 @@ import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import { FontAwesome, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 
-const HomeScreen = () => {
+const SeguimientoScreen = () => {
   return (
     <View style={styles.container}>
+    
+
       {/* Contenido Principal */}
       <ScrollView contentContainerStyle={styles.content}>
         {/* Sección: ¿Cómo te sientes? */}
         <View style={styles.card}>
           <Text style={styles.cardTitle}>¿Cómo te sientes en este momento?</Text>
           <View style={styles.emojiContainer}>
-            <Text style={styles.emoji}>😢</Text>
+            <Text style={styles.emoji}>😡</Text>
             <Text style={styles.emoji}>😞</Text>
             <Text style={styles.emoji}>😐</Text>
             <Text style={styles.emoji}>😊</Text>
@@ -19,27 +21,27 @@ const HomeScreen = () => {
           </View>
         </View>
 
-        {/* Sección: Revisar emociones */}
+        {/* Sección: Último estado de ánimo */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>¿Quieres revisar tus emociones pasadas?</Text>
+          <Text style={styles.cardTitle}>Último estado de ánimo ingresado: 😊</Text>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Ver Registro de Emociones →</Text>
+            <Text style={styles.buttonText}>Ver registro de emociones →</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Sección: Actividades diarias */}
+        {/* Sección: Agregar a Diario de Pensamientos */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Revisa tus actividades diarias</Text>
+          <Text style={styles.cardTitle}>¿Quieres agregar algo a tu Diario de Pensamientos?</Text>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Ver Actividades Diarias →</Text>
+            <Text style={styles.buttonText}>Agregar página →</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Sección: Recomendaciones */}
+        {/* Sección: Leer Diario de Pensamientos */}
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>¿Tienes pensamientos que quieres guardar?</Text>
+          <Text style={styles.cardTitle}>¿Quieres leer tu Diario de Pensamientos?</Text>
           <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Ver Diario de Pensamientos →</Text>
+            <Text style={styles.buttonText}>Diario de Pensamientos →</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
@@ -125,4 +127,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default SeguimientoScreen;
