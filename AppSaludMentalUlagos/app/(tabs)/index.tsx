@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
-import { FontAwesome, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { styles } from "@/constants/Styles";
 
 const HomeScreen = () => {
   return (
@@ -47,82 +47,5 @@ const HomeScreen = () => {
   );
 };
 
-// Estilos
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#A2C5EC", // Color de fondo
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 15,
-    backgroundColor: "#6D8FC6",
-  },
-  appTitle: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "white",
-  },
-  headerIcons: {
-    flexDirection: "row",
-    gap: 15,
-  },
-  content: {
-    padding: 15,
-  },
-  card: {
-    backgroundColor: "#3D5A80",
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 10,
-  },
-  cardTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "white",
-    marginBottom: 10,
-    textAlign: "center",
-  },
-  button: {
-    backgroundColor: "#1E3A5F",
-    padding: 10,
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: "white",
-    textAlign: "center",
-    fontSize: 14,
-  },
-  emojiContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 10,
-  },
-  emoji: {
-    fontSize: 20,
-  },
-  bottomNav: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    paddingVertical: 10,
-    backgroundColor: "#1E3A5F",
-  },
-  navItem: {
-    alignItems: "center",
-  },
-  navItemActive: {
-    alignItems: "center",
-    backgroundColor: "#3D5A80",
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    borderRadius: 10,
-  },
-  navText: {
-    color: "white",
-    fontSize: 12,
-  },
-});
 
 export default HomeScreen;
