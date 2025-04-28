@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Tabs } from "expo-router";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import React from 'react';
@@ -18,11 +18,13 @@ const CustomNavbar = () => {
                 tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].text,
                 headerShown: false,
                 tabBarButton: HapticTab,
-                tabBarBackground: TabBarBackground,
+                tabBarBackground: () => (
+                    <View style={{ flex: 1, backgroundColor: Colors[colorScheme ?? 'light'].navbar, opacity: 1 }} />
+                ),
                 tabBarStyle: Platform.select({
-                ios: { position: 'absolute', backgroundColor: Colors[colorScheme ?? 'light'].navbar },
-                android: { backgroundColor: Colors[colorScheme ?? 'light'].navbar },
-                default: {},
+                ios: {position: 'absolute'},
+                android: {position: 'absolute'},
+                default: { position: 'absolute'},
                 }),
             }}>
             <Tabs.Screen

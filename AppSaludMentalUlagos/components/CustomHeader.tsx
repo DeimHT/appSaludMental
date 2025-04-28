@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import { FontAwesome, Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
@@ -12,16 +12,14 @@ const CustomHeader = () => {
             <View style={styles.header}>
                 <View style={styles.leftSection}>
                     <TouchableOpacity>
-                        <FontAwesome name="user-circle" size={28} color="black" />
+                        <Image source={require('@/assets/images/Logo/Logo Horizontal.png')} style={stylesHeader.logo} />
                     </TouchableOpacity>
-                    <View style={styles.appTitleContainer}>
-                        <Text style={styles.appTitle}>SMULA</Text>
-                    </View>
+                    
                 </View>
 
                 <View style={styles.rightSection}>
                     <TouchableOpacity>
-                        <Ionicons name="help-circle" size={28} color="white" />
+                        <Image source={require('@/assets/images/Icons/Telefono.png')} style={stylesHeader.telefono} />
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => router.push('/config/configuraciones')}>
                         <Ionicons name="settings-outline" size={28} color="white" />
@@ -31,5 +29,18 @@ const CustomHeader = () => {
         </SafeAreaView>
     );
 };
+
+const stylesHeader = StyleSheet.create({
+    telefono: {
+        width: 30,
+        height: 30,
+        resizeMode: "contain",
+    },
+    logo: {
+        width: 150,
+        height: 50,
+        resizeMode: "contain",
+    },
+})
 
 export default CustomHeader;

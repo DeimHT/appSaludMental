@@ -1,13 +1,14 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    safeArea: { flex: 0, backgroundColor: "#6D8FC6" },
+    
+    safeArea: { flex: 0, backgroundColor: "#003480" },
     header: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         padding: 15,
-        backgroundColor: "#6D8FC6",
+        backgroundColor: "#003480",
     },
     leftSection: { flexDirection: "row", alignItems: "center" },
     appTitleContainer: {
@@ -19,7 +20,7 @@ export const styles = StyleSheet.create({
     },
     appTitle: { color: "white", fontSize: 18, fontWeight: "bold" },
     rightSection: { flexDirection: "row", gap: 15 },
-    navbar: { backgroundColor: "#1E3A5F" },
+    navbar: { backgroundColor: "#003480" },
     containerConfig: {
         flex: 1,
         backgroundColor: "#A2C5EC",
