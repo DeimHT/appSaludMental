@@ -31,7 +31,6 @@ export default function LoginScreen() {
                 <TouchableOpacity>
                     <Image source={require('@/assets/images/Logo/Logo Cuadrado.png')} style={styles.logoLogin} />
                 </TouchableOpacity>
-                <Text style={styles.logoTextLogin}>U-Mind</Text>
             </View>
             <View style={styles.loginBox}>
                 <Text style={styles.loginTitle}>Inicio de Sesión</Text>
