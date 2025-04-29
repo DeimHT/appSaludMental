@@ -1,49 +1,48 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack, useRouter } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
+import { router, Slot } from 'expo-router'; // 👈 IMPORTANTE
 import { StatusBar } from 'react-native';
-import { useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useColorScheme } from '@/hooks/useColorScheme';
-import CustomHeader from '@/components/CustomHeader';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect, useState } from 'react';
+import { onAuthStateChanged, User } from 'firebase/auth';
+import { auth } from '@/config/firebase';
+import { ThemeProvider } from '@/context/ThemeContext';
+import { UserProvider } from '@/context/UserContext';
 
-// Evita que la pantalla de carga se oculte automáticamente antes de que todo esté cargado.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require('../assets/fonts/MPLUSRounded1c-Regular.ttf'),
   });
 
+  const [user, setUser] = useState<User | null>(null);
+  const [authChecked, setAuthChecked] = useState(false);
+
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-    StatusBar.setHidden(true, 'fade');
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(firebaseUser);
+      setAuthChecked(true);
+      if (loaded) {
+        SplashScreen.hideAsync();
+      }
+      if (!firebaseUser) {
+        router.replace('/login');
+      }
+    });
+
+    return unsubscribe;
   }, [loaded]);
 
-  if (!loaded) {
+  if (!loaded || !authChecked) {
     return null;
   }
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-
-      <StatusBar hidden={true} translucent={true} barStyle={"light-content"}/>
-
-      <View style={ { flex: 1 } }>
-        <Stack screenOptions={{ headerShown: true , header(): JSX.Element { return <CustomHeader />; } }}>
-          <Stack.Screen name="(tabs)"/>
-          <Stack.Screen name="config/configuraciones"/>
-          <Stack.Screen name="+not-found" />
-        </Stack>
-      </View>
+    <ThemeProvider>
+      <UserProvider>
+        <StatusBar hidden={true} translucent={true} />
+        <Slot />
+      </UserProvider>
     </ThemeProvider>
   );
 }
-
-// export default RootLayout; (removed duplicate export)

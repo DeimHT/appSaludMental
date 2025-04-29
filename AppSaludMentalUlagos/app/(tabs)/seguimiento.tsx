@@ -1,8 +1,11 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
-import { styles } from "@/constants/Styles";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView, useColorScheme } from "react-native";
+import { createStyles } from "@/constants/Styles";
+import { useTheme } from "@/context/ThemeContext";
 
 const SeguimientoScreen = () => {
+  const { theme } = useTheme();
+  const styles = createStyles(theme);
   return (
     <View style={styles.container}>
     

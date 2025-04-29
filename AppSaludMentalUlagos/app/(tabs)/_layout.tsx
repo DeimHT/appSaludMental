@@ -1,35 +1,36 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, View } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { useColorScheme } from '@/hooks/useColorScheme';
 import { Colors } from '@/constants/Colors';
 import { HapticTab } from '@/components/HapticTab';
-import TabBarBackground from '@/components/ui/TabBarBackground';
+import { useTheme } from '@/context/ThemeContext';
+import { CustomTabButton } from '@/components/CustomTabButton';
+import CustomHeader from '@/components/CustomHeader';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { theme } = useTheme();
 
   return (
     <>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: Colors[colorScheme ?? 'light'].text,
-          tabBarInactiveTintColor: Colors[colorScheme ?? 'light'].text,
-          headerShown: false,
-          tabBarButton: HapticTab,
-          tabBarBackground: TabBarBackground,
-          tabBarStyle: Platform.select({
-            ios: {
-              position: 'absolute',
-              backgroundColor: Colors[colorScheme ?? 'light'].navbar,
-            },
-            android: {
-              backgroundColor: Colors[colorScheme ?? 'light'].navbar,
-            },
-            default: {},
-          }),
-        }}>
+          tabBarActiveTintColor: Colors[theme].tabIconSelected,
+          tabBarInactiveTintColor: Colors[theme].tabIconSelected,
+          header: () => <CustomHeader />,
+          tabBarButton: (props) => <CustomTabButton {...props} />,
+          tabBarBackground: () => (
+            <View style={{ flex: 1, backgroundColor: Colors[theme].navbar, opacity: 1 }} />
+          ),
+          tabBarStyle: {
+            position: 'absolute',
+            backgroundColor: Colors[theme].navbar,
+            borderTopWidth: 0,
+            elevation: 0,
+            shadowOpacity: 0,
+          },          
+        }}
+        >
         <Tabs.Screen
           name="index"
           options={{

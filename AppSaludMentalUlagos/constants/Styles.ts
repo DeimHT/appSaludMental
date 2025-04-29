@@ -1,149 +1,237 @@
 import { StyleSheet } from "react-native";
+import { Colors } from "@/constants/Colors";
 
-export const styles = StyleSheet.create({
-    
-    safeArea: { flex: 0, backgroundColor: "#003480" },
-    header: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: 15,
-        backgroundColor: "#003480",
-    },
-    leftSection: { flexDirection: "row", alignItems: "center" },
-    appTitleContainer: {
-        backgroundColor: "black",
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        borderRadius: 5,
-        marginLeft: 10,
-    },
-    appTitle: { color: "white", fontSize: 18, fontWeight: "bold" },
-    rightSection: { flexDirection: "row", gap: 15 },
-    navbar: { backgroundColor: "#003480" },
-    containerConfig: {
-        flex: 1,
-        backgroundColor: "#A2C5EC",
-        justifyContent: "center",
-        alignItems: "center",
-        paddingHorizontal: 5,
-    },
-    container: {
-        flex: 1,
-        backgroundColor: "#A2C5EC",
-        justifyContent: "center",
-        paddingHorizontal: 5,
-    },
-    backButton: {
-        position: "absolute",
-        top: 40,
-        left: 20,
-    },
-    profileButton: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#3D5A80",
-        paddingVertical: 12,
-        paddingHorizontal: 40,
-        borderRadius: 10,
-        marginBottom: 20,
-        width: "75%",
-    },
-    buttonText: {
-        color: "white",
-        fontSize: 16,
-        marginLeft: 10,
-    },
-    switchContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        backgroundColor: "#3D5A80",
-        paddingVertical: 5,
-        paddingHorizontal: 20,
-        borderRadius: 10,
-        width: "75%",
-        justifyContent: "space-between",
-    },
-    switchText: {
-        color: "white",
-        fontSize: 16,
-    },
-    logoutButton: {
-        backgroundColor: "#8B0000",
-        paddingVertical: 12,
-        paddingHorizontal: 40,
-        borderRadius: 10,
-        width: "75%",
-        alignItems: "center",
-        marginTop: 20,
-    },
-    headerIcons: {
-        flexDirection: "row",
-        gap: 15,
-    },
-    content: {
-        padding: 15,
-    },
-    card: {
-        backgroundColor: "#3D5A80",
-        padding: 15,
-        borderRadius: 10,
-        marginBottom: 10,
-    },
-    cardTitle: {
-        fontSize: 16,
-        fontWeight: "bold",
-        color: "white",
-        marginBottom: 10,
-        textAlign: "center",
-    },
-    activityList: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: 5,
-    },
-    activityItem: {
-        fontSize: 16,
-        color: "white",
-    },
-    button: {
-        backgroundColor: "#1E3A5F",
-        padding: 10,
-        borderRadius: 5,
-    },
-    bottomNav: {
+export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
+    const colors = Colors[colorScheme];
+
+    return StyleSheet.create({
+        safeArea: { flex: 0, backgroundColor: colors.header },
+        header: {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: 15,
+            backgroundColor: colors.header,
+        },
+        leftSection: { flexDirection: "row", alignItems: "center" },
+        appTitleContainer: {
+            backgroundColor: "black",
+            paddingVertical: 5,
+            paddingHorizontal: 10,
+            borderRadius: 5,
+            marginLeft: 10,
+        },
+        appTitle: { color: "white", fontSize: 18, fontWeight: "bold" },
+        rightSection: { 
+            flexDirection: "row", 
+            gap: 20,},
+        celButton: { 
+            backgroundColor: '#134793', // color de fondo cuando está activo
+            borderRadius: 30,
+            paddingHorizontal: 8,
+            paddingVertical: 8, },
+        configButton: { 
+            backgroundColor: '#134793', // color de fondo cuando está activo
+            borderRadius: 30,
+            paddingHorizontal: 8,
+            paddingVertical: 8, },
+        navbar: { backgroundColor: "#003480" },
+        containerConfig: {
+            flex: 1,
+            backgroundColor: colors.background,
+            justifyContent: "center",
+            alignItems: "center",
+            paddingHorizontal: 5,
+        },
+        container: {
+            flex: 1,
+            backgroundColor: "#A2C5EC",
+            justifyContent: "center",
+            paddingHorizontal: 5,
+        },
+        backButton: {
+            position: "absolute",
+            top: 40,
+            left: 20,
+        },
+        profileButton: {
+            flexDirection: "row",
+            alignItems: "center",
+            backgroundColor: "#3D5A80",
+            paddingVertical: 12,
+            paddingHorizontal: 40,
+            borderRadius: 10,
+            marginBottom: 20,
+            width: "75%",
+        },
+        buttonText: {
+            color: "white",
+            fontSize: 16,
+            marginLeft: 10,
+        },
+        switchContainer: {
+            flexDirection: "row",
+            alignItems: "center",
+            backgroundColor: "#3D5A80",
+            paddingVertical: 5,
+            paddingHorizontal: 20,
+            borderRadius: 10,
+            width: "75%",
+            justifyContent: "space-between",
+        },
+        switchText: {
+            color: "white",
+            fontSize: 16,
+        },
+        logoutButton: {
+            backgroundColor: "#8B0000",
+            paddingVertical: 12,
+            paddingHorizontal: 40,
+            borderRadius: 10,
+            width: "75%",
+            alignItems: "center",
+            marginBottom: 100,
+        },
+        headerIcons: {
+            flexDirection: "row",
+            gap: 15,
+        },
+        content: {
+            padding: 15,
+        },
+        card: {
+            backgroundColor: colors.card,
+            padding: 15,
+            borderRadius: 10,
+            marginBottom: 10,
+        },
+        cardTitle: {
+            fontSize: 16,
+            fontWeight: "bold",
+            color: colors.text,
+            marginBottom: 10,
+            textAlign: "center",
+        },
+        activityList: {
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: 5,
+        },
+        activityItem: {
+            fontSize: 16,
+            color: colors.title,
+        },
+        button: {
+            backgroundColor: "#1E3A5F",
+            padding: 10,
+            borderRadius: 5,
+        },
+        bottomNav: {
+            flexDirection: "row",
+            justifyContent: "space-around",
+            paddingVertical: 10,
+            backgroundColor: "#1E3A5F",
+        },
+        navItem: {
+            alignItems: "center",
+        },
+        navItemActive: {
+            alignItems: "center",
+            backgroundColor: "#3D5A80",
+            paddingVertical: 5,
+            paddingHorizontal: 15,
+            borderRadius: 10,
+        },
+        navText: {
+            color: "white",
+            fontSize: 12,
+        },
+        emojiContainer: {
         flexDirection: "row",
         justifyContent: "space-around",
-        paddingVertical: 10,
-        backgroundColor: "#1E3A5F",
-    },
-    navItem: {
-        alignItems: "center",
-    },
-    navItemActive: {
-        alignItems: "center",
-        backgroundColor: "#3D5A80",
-        paddingVertical: 5,
-        paddingHorizontal: 15,
-        borderRadius: 10,
-    },
-    navText: {
-        color: "white",
-        fontSize: 12,
-    },
-    emojiContainer: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: 10,
-    },
-    emoji: {
-    fontSize: 20,
-    },
-    contentConfig: {
-        alignItems: "center", 
-        flex: 0.8, 
-        justifyContent: "flex-start", 
-        marginTop: 30, 
-    },
-});
+        marginTop: 10,
+        },
+        emoji: {
+        fontSize: 20,
+        },
+        contentConfig: {
+            alignItems: "center", 
+            flex: 0.8, 
+            justifyContent: "flex-start", 
+            marginTop: 30, 
+        },
+        containerLogin: {
+            flex: 1,
+            backgroundColor: colors.background,
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 20,
+        },
+        logoContainerLogin: {
+            alignItems: 'center',
+            marginBottom: 30,
+        },
+        logoTextLogin: {
+            fontSize: 24,
+            color: '#003480',
+            fontWeight: 'bold',
+            marginTop: 10,
+        },
+        loginBox: {
+            width: '100%',
+            backgroundColor: '#8DA8C4',
+            borderRadius: 15,
+            padding: 20,
+            alignItems: 'center',
+        },
+        loginTitle: {
+            fontSize: 22,
+            color: '#003480',
+            fontWeight: 'bold',
+            marginBottom: 20,
+        },
+        labelLogin: {
+            alignSelf: 'flex-start',
+            color: '#003480',
+            fontSize: 16,
+            marginBottom: 5,
+            marginTop: 10,
+        },
+        inputLogin: {
+            width: '100%',
+            backgroundColor: 'white',
+            borderRadius: 10,
+            padding: 10,
+            marginBottom: 5,
+            borderWidth: 2,
+            borderColor: '#194a80',
+        },
+        loginButton: {
+            backgroundColor: '#003480',
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingVertical: 12,
+            paddingHorizontal: 30,
+            borderRadius: 12,
+            marginTop: 20,
+        },
+        loginButtonText: {
+            color: 'white',
+            marginLeft: 10,
+            fontSize: 18,
+        },
+        forgotTextLogin: {
+            color: '#003480',
+            marginTop: 15,
+            textDecorationLine: 'underline',
+            fontSize: 14,
+        },
+        logoLogin: {
+            width: 230,
+            height: 230,
+            resizeMode: 'contain',
+        },
+    });
+}
