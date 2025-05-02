@@ -26,7 +26,7 @@ export default function RootLayout() {
         SplashScreen.hideAsync();
       }
       if (!firebaseUser) {
-        router.replace('/login');
+        router.replace('/auth/login');
       }
     });
 
