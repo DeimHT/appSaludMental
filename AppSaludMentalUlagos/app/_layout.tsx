@@ -1,4 +1,4 @@
-import { router, Slot } from 'expo-router'; // 👈 IMPORTANTE
+import { router, Slot } from 'expo-router'; 
 import { StatusBar } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
@@ -7,12 +7,16 @@ import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from '@/config/firebase';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { UserProvider } from '@/context/UserContext';
+import { Text, TextInput } from 'react-native';
+
 
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/MPLUSRounded1c-Regular.ttf'),
+    RoundedMplusBold: require('../assets/fonts/MPLUSRounded1c-Bold.ttf'),
+    RoundedMplusRegular: require('../assets/fonts/MPLUSRounded1c-Regular.ttf'),
+    RoundedMplusMedium: require('../assets/fonts/MPLUSRounded1c-Medium.ttf'),
   });
 
   const [user, setUser] = useState<User | null>(null);
@@ -36,6 +40,16 @@ export default function RootLayout() {
   if (!loaded || !authChecked) {
     return null;
   }
+
+  ;(Text as any).defaultProps = {
+    ...(Text as any).defaultProps,
+    style: [{ fontFamily: 'RoundedMplusBold' }],
+  };
+  
+  ;(TextInput as any).defaultProps = {
+    ...(TextInput as any).defaultProps,
+    style: [{ fontFamily: 'RoundedMplusBold' }],
+  };
 
   return (
     <ThemeProvider>

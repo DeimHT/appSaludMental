@@ -28,7 +28,7 @@ export default function LoginScreen() {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-            <View style={styles.container}>
+            <View style={styles.containerLogin2}>
                 <View style={styles.logoContainerLogin}>
                     
                     <Image source={require('@/assets/images/Logo/Logo Cuadrado.png')} style={styles.logoLogin} />

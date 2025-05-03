@@ -13,8 +13,6 @@ import { useUser } from '@/context/UserContext';
 
 export default function PerfilScreen() {
     const { user, loading } = useUser(); 
-    console.log("User:", user); // Verifica el usuario actual
-    console.log("Loading:", loading); // Verifica el estado de carga
     const router = useRouter();
     const { theme } = useTheme();
     const styles = createStyles(theme);
@@ -23,17 +21,13 @@ export default function PerfilScreen() {
     useEffect(() => {
         const fetchUserData = async () => {
           const currentUser = auth.currentUser;
-            console.log("currentUser:", currentUser); // Verifica el usuario actual
       
           if (currentUser) {
             const userDocRef = doc(db, "Users", currentUser.uid);
-            console.log("userDocRef:", userDocRef); // Verifica la referencia del documento
             const userDocSnap = await getDoc(userDocRef);
-            console.log("userDocSnap.data():", userDocSnap.data());
       
             if (userDocSnap.exists()) {
-              const data = userDocSnap.data(); // ⚡️ Aquí sí extraes los datos
-              console.log("UserData correcto:", data);
+              const data = userDocSnap.data(); 
               setUserData(data);
             } else {
               console.log("El documento del usuario no existe.");
@@ -43,7 +37,7 @@ export default function PerfilScreen() {
       
         fetchUserData();
       }, []);      
-    console.log("UserData:", userData); // Verifica los datos del usuario
+    console.log("UserData:", userData); 
 
     if (loading || !userData) {
         return (

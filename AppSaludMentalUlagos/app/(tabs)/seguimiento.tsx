@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, useColorScheme } from "react-native";
+import { View, Text, TouchableOpacity, Image, ScrollView, useColorScheme } from "react-native";
 import { createStyles } from "@/constants/Styles";
 import { useTheme } from "@/context/ThemeContext";
 
@@ -13,40 +13,60 @@ const SeguimientoScreen = () => {
       {/* Contenido Principal */}
       <ScrollView contentContainerStyle={styles.content}>
         {/* Sección: ¿Cómo te sientes? */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>¿Cómo te sientes en este momento?</Text>
-          <View style={styles.emojiContainer}>
-            <Text style={styles.emoji}>😡</Text>
-            <Text style={styles.emoji}>😞</Text>
-            <Text style={styles.emoji}>😐</Text>
-            <Text style={styles.emoji}>😊</Text>
-            <Text style={styles.emoji}>😃</Text>
-          </View>
-        </View>
+                <View style={[styles.card, { borderRadius: 20 }]}>
+                <Text style={[styles.cardTitle, { textAlign: 'center', marginBottom: 12 }]}>
+                  ¿Cómo te sientes en esta mañana?
+                </Text>
+                <View style={styles.emojiContainerIndex}>
+                  <Text style={styles.emojiIndex}>😣</Text>
+                  <Text style={styles.emojiIndex}>😞</Text>
+                  <Text style={styles.emojiIndex}>😐</Text>
+                  <Text style={styles.emojiIndex}>😊</Text>
+                  <Text style={styles.emojiIndex}>😁</Text>
+                </View>
+                <View style={styles.emojiLabels}>
+                  <Text style={styles.emojiLabel}>Muy mal</Text>
+                  <Text style={styles.emojiLabel}>Mal</Text>
+                  <Text style={styles.emojiLabel}>Normal</Text>
+                  <Text style={styles.emojiLabel}>Bien</Text>
+                  <Text style={styles.emojiLabel}>Muy bien</Text>
+                </View>
+              </View>
 
         {/* Sección: Último estado de ánimo */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Último estado de ánimo ingresado: 😊</Text>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Ver Registro de Emociones →</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.optionCard}>
+          <View style={styles.optionContent}>
+            <Text style={styles.emoji}>😊</Text>
+            <Text style={styles.optionText}>Anoche te sentias alegre</Text>
+          </View>
+          <Text style={styles.optionArrow}>›</Text>
+        </TouchableOpacity>
+      
 
         {/* Sección: Agregar a Diario de Pensamientos */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>¿Quieres agregar algo a tu Diario de Pensamientos?</Text>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Agregar página →</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.optionCard}>
+          <View style={styles.optionContent}>
+            <Image
+              source={require('@/assets/images/Icons/Agregar pagina 3.png')}
+              style={styles.optionIconImage}
+            />
+            <Text style={styles.optionText}>Escribe una nueva página para tu Diario de Pensamientos</Text>
+          </View>
+          <Text style={styles.optionArrow}>›</Text>
+        </TouchableOpacity>
 
         {/* Sección: Leer Diario de Pensamientos */}
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>¿Quieres leer tu Diario de Pensamientos?</Text>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Diario de Pensamientos →</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.optionCard}>
+          <View style={styles.optionContent}>
+            <Image
+              source={require('@/assets/images/Icons/Diario 2.png')}
+              style={styles.optionIconImage}
+            />
+            <Text style={styles.optionText}>Revisa tu Diario de Pensamientos</Text>
+          </View>
+          <Text style={styles.optionArrow}>›</Text>
+        </TouchableOpacity>
+        
       </ScrollView>
     </View>
   );

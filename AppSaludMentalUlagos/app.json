@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "AppSaludMentalUlagos",
-    "slug": "AppSaludMentalUlagos",
+    "name": "U-Mind",
+    "slug": "u-mind",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/Logo/Logo sin texto.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,8 +13,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/Logo/Logo sin texto.png",
+        "backgroundColor": "#99B3D9"
       },
       "package": "com.deimht.AppSaludMentalUlagos"
     },

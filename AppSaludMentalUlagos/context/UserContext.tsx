@@ -16,8 +16,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
-    console.log("UserProvider rendered");
-    console.log("UserProvider user:", user);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -26,7 +24,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
         });
             return unsubscribe;
     }, []);
-    console.log(useContext(UserContext));
     return (
         <UserContext.Provider value={{ user, loading }}>
             {children}
