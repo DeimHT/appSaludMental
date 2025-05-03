@@ -7,6 +7,8 @@ import { createStyles } from "../../constants/Styles";
 import { useTheme } from "@/context/ThemeContext";
 import { logout } from "@/utils/logout";
 
+
+
 const SettingsScreen = () => {
     const { theme, toggleTheme } = useTheme();
     const navigation = useNavigation();

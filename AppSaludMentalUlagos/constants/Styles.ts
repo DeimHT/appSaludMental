@@ -106,7 +106,7 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             marginBottom: 10,
         },
         cardTitle: {
-            fontSize: 16,
+            fontSize: 40,
             fontWeight: "bold",
             color: colors.text,
             marginBottom: 10,
@@ -236,6 +236,69 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             width: 230,
             height: 230,
             resizeMode: 'contain',
+        },
+        optionCard: {
+            backgroundColor: colors.card, // o un color dinámico basado en el tema
+            borderRadius: 15,
+            paddingVertical: 16,
+            paddingHorizontal: 20,
+            marginVertical: 8,
+            marginHorizontal: 12,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+        },
+        
+        optionContent: {
+            flexDirection: 'row',
+            alignItems: 'center',
+        },
+        
+        optionIcon: {
+            fontSize: 28,
+            marginRight: 12,
+            color: 'white',
+        },
+
+        optionIconImage: {
+            width: 50,
+            height: 50,
+            marginRight: 12,
+        },
+        
+        optionText: {
+            fontSize: 28,
+            color: colors.text,
+            fontWeight: '500',
+        },
+        
+        optionArrow: {
+            fontSize: 40,
+            color: colors.text,
+            fontWeight: 'bold',
+        },
+        emojiContainerIndex: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            marginBottom: 8,
+            paddingHorizontal: 10,
+        },
+        
+        emojiIndex: {
+            fontSize: 40,
+        },
+        
+        emojiLabels: {
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            paddingHorizontal: 10,
+        },
+        
+        emojiLabel: {
+            fontSize: 14,
+            color: colors.text,
+            fontWeight: 'bold',
+            textAlign: 'center',
         },
     });
 }
