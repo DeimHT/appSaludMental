@@ -84,7 +84,7 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             fontSize: 16,
         },
         logoutButton: {
-            backgroundColor: "#8B0000",
+            backgroundColor: colors.alert,
             paddingVertical: 12,
             paddingHorizontal: 40,
             borderRadius: 10,

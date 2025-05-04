@@ -6,6 +6,7 @@ import { useNavigation } from "@react-navigation/native";
 import { createStyles } from "../../constants/Styles";
 import { useTheme } from "@/context/ThemeContext";
 import { logout } from "@/utils/logout";
+import { createStyles as arrowStyle } from "@/constants/StylesArrow";
 
 
 
@@ -13,6 +14,7 @@ const SettingsScreen = () => {
     const { theme, toggleTheme } = useTheme();
     const navigation = useNavigation();
     const styles = createStyles(theme);
+    const stylesArrow = arrowStyle(theme);
     const router = useRouter();
 
     return (
@@ -20,7 +22,7 @@ const SettingsScreen = () => {
             {/* Botón de regreso */}
         
             <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-                <Ionicons name="arrow-back-circle-outline" size={30} color="black" />
+                <Ionicons name="arrow-back-circle-outline" size={30} style={stylesArrow.arrowBack}/>
             </TouchableOpacity>
 
             <View style={styles.contentConfig}>

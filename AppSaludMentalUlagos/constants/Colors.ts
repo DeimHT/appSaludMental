@@ -20,6 +20,7 @@ export const Colors = {
     card2: '#7D9EC7',
     header: '#003480',
     navbar: '#003480',
+    alert: '#5B3AAD',
 
   },
   dark: {
@@ -35,5 +36,6 @@ export const Colors = {
     card2: '#7D9EC7',
     header: '#668DC6',
     navbar: '#9BA1A6',
+    alert: '#8B0000',
   },
 };

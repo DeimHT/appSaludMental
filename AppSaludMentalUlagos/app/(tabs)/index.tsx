@@ -1,11 +1,22 @@
 import React from "react";
+import { useRouter } from 'expo-router'
 import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { createStyles } from "@/constants/Styles";
 import { useTheme } from "@/context/ThemeContext";
 
 const HomeScreen = () => {
+  const router = useRouter();
   const { theme } = useTheme();
   const styles = createStyles(theme);
+
+  const irAEmociones = (categoria: string) => {
+    router.push({
+      pathname: '/emociones/[categoria]',
+      params: { categoria }
+    })
+  }
+
+  
   return (
     <View style={styles.container}>
       {/* Contenido Principal */}
@@ -16,11 +27,21 @@ const HomeScreen = () => {
           ¿Cómo te sientes en esta mañana?
         </Text>
         <View style={styles.emojiContainerIndex}>
+          <TouchableOpacity onPress={() => irAEmociones('Muy mal')}>
           <Text style={styles.emojiIndex}>😣</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => irAEmociones('Mal')}>
           <Text style={styles.emojiIndex}>😞</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => irAEmociones('Neutral')}>
           <Text style={styles.emojiIndex}>😐</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => irAEmociones('Bien')}>
           <Text style={styles.emojiIndex}>😊</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => irAEmociones('Muy bien')}>
           <Text style={styles.emojiIndex}>😁</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.emojiLabels}>
           <Text style={styles.emojiLabel}>Muy mal</Text>

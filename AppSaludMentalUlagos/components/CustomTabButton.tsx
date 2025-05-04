@@ -6,6 +6,8 @@ import { Colors } from 'react-native/Libraries/NewAppScreen';
 export function CustomTabButton({ children, onPress, accessibilityState }: any) {
     const { theme } = useTheme();
     const isSelected = accessibilityState?.selected;
+    console.log('accessibilityState', accessibilityState);
+    console.log('isSelected', isSelected);
 
     return (
         <TouchableOpacity
@@ -19,7 +21,7 @@ export function CustomTabButton({ children, onPress, accessibilityState }: any) 
         >
         <View
             style={{
-                backgroundColor: isSelected ? '#134793' : 'transparent', // color de fondo cuando está activo
+                backgroundColor: isSelected ? Colors[theme].tabIconSelected : 'transparent', // color de fondo cuando está activo
                 borderRadius: 12,
                 paddingHorizontal: 20,
                 paddingVertical: 2,
