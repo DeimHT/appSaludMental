@@ -112,6 +112,15 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             marginBottom: 10,
             textAlign: "center",
         },
+        cardActivity:{
+            backgroundColor: colors.background,
+            padding: 15,
+            borderRadius: 10,
+            marginBottom: 10,
+        },
+        checkbox: {
+            borderColor: colors.title2,
+        },
         activityList: {
             flexDirection: "row",
             justifyContent: "space-between",
@@ -252,7 +261,7 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             resizeMode: 'contain',
         },
         optionCard: {
-            backgroundColor: colors.card, // o un color dinámico basado en el tema
+            backgroundColor: colors.card,
             borderRadius: 15,
             paddingVertical: 16,
             paddingHorizontal: 20,
@@ -263,10 +272,15 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             justifyContent: 'space-between',
         },
         
+        
         optionContent: {
             flexDirection: 'row',
             alignItems: 'center',
+            flexShrink: 1, // <-- permite que el contenido se adapte
+            flexGrow: 1,   // <-- usa el espacio restante
+            marginRight: 12, // deja aire para la flecha
         },
+        
         
         optionIcon: {
             fontSize: 28,
@@ -275,22 +289,30 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
         },
 
         optionIconImage: {
-            width: 50,
-            height: 50,
+            width: 60,
+            height: 60,
             marginRight: 12,
+            resizeMode: 'contain',
         },
         
         optionText: {
-            fontSize: 28,
+            flexShrink: 1,
+            flexWrap: 'wrap',
+            fontSize: 24,
             color: colors.text,
             fontWeight: '500',
+            lineHeight: 24,
         },
         
+        
         optionArrow: {
-            fontSize: 40,
+            fontSize: 24,
             color: colors.text,
             fontWeight: 'bold',
+            marginLeft: 4,
+            maxWidth: 20, // <-- evita que se expanda
         },
+        
         emojiContainerIndex: {
             flexDirection: 'row',
             justifyContent: 'space-between',

@@ -59,7 +59,7 @@ const SeguimientoScreen = () => {
         <TouchableOpacity style={styles.optionCard}>
           <View style={styles.optionContent}>
             <Image
-              source={require('@/assets/images/Icons/Diario 2.png')}
+              source={require('@/assets/images/Icons/Diario 3.png')}
               style={styles.optionIconImage}
             />
             <Text style={styles.optionText}>Revisa tu Diario de Pensamientos</Text>

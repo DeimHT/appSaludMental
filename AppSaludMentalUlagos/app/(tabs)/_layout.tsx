@@ -1,9 +1,8 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform, View } from 'react-native';
+import { View } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Colors } from '@/constants/Colors';
-import { HapticTab } from '@/components/HapticTab';
 import { useTheme } from '@/context/ThemeContext';
 import { CustomTabButton } from '@/components/CustomTabButton';
 import CustomHeader from '@/components/CustomHeader';
@@ -15,8 +14,8 @@ export default function TabLayout() {
     <>
       <Tabs
         screenOptions={{
-          tabBarActiveTintColor: Colors[theme].tabIconSelected,
-          tabBarInactiveTintColor: Colors[theme].tabIconSelected,
+          tabBarActiveTintColor: Colors[theme].tabIconDefault,
+          tabBarInactiveTintColor: Colors[theme].tabIconDefault,
           header: () => <CustomHeader />,
           tabBarButton: (props) => <CustomTabButton {...props} />,
           tabBarBackground: () => (
@@ -24,7 +23,6 @@ export default function TabLayout() {
           ),
           tabBarStyle: {
             position: 'absolute',
-            backgroundColor: Colors[theme].navbar,
             borderTopWidth: 0,
             elevation: 0,
             shadowOpacity: 0,
