@@ -62,7 +62,7 @@ export default function PerfilScreen() {
     return (
         <View style={[styles.container, { backgroundColor: Colors[theme].background }]}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-            <Ionicons name="arrow-back-circle-outline" size={30} color={Colors[theme].text} />
+            <Ionicons name="arrow-back-circle-outline" size={30} color={Colors[theme].title2} />
         </TouchableOpacity>
 
         <Text style={[styles.title, { color: Colors[theme].title }]}>Perfil</Text>

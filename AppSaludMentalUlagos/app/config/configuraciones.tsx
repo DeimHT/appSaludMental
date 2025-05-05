@@ -28,7 +28,7 @@ const SettingsScreen = () => {
             <View style={styles.contentConfig}>
                 {/* Botón de perfil */}
                 <TouchableOpacity style={styles.profileButton} onPress={() => router.push('/config/perfil')}>
-                    <Ionicons name="person-circle-outline" size={24} color="white" />
+                    <Ionicons name="person-circle-outline" size={24} style={styles.iconPerfil} />
                     <Text style={styles.buttonText}>Perfil</Text>
                 </TouchableOpacity>
 

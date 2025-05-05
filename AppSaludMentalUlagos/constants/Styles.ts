@@ -57,7 +57,7 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
         profileButton: {
             flexDirection: "row",
             alignItems: "center",
-            backgroundColor: "#3D5A80",
+            backgroundColor: colors.card,
             paddingVertical: 12,
             paddingHorizontal: 40,
             borderRadius: 10,
@@ -65,14 +65,17 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             width: "75%",
         },
         buttonText: {
-            color: "white",
+            color: colors.text,
             fontSize: 16,
             marginLeft: 10,
+        },
+        iconPerfil: {
+            color: colors.text,
         },
         switchContainer: {
             flexDirection: "row",
             alignItems: "center",
-            backgroundColor: "#3D5A80",
+            backgroundColor: colors.card,
             paddingVertical: 5,
             paddingHorizontal: 20,
             borderRadius: 10,
@@ -80,7 +83,7 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             justifyContent: "space-between",
         },
         switchText: {
-            color: "white",
+            color: colors.text,
             fontSize: 16,
         },
         logoutButton: {
