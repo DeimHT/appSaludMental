@@ -6,11 +6,12 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/config/firebase'; 
 import { useTheme } from "@/context/ThemeContext";
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { logos } from '@/utils/logos.ts';
 
 import { createStyles } from "@/constants/Styles";
 
 export default function LoginScreen() {
-    const { theme } = useTheme();
+    const { theme, themeName } = useTheme();
     const router = useRouter();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,7 +32,7 @@ export default function LoginScreen() {
             <View style={styles.containerLogin2}>
                 <View style={styles.logoContainerLogin}>
                     
-                    <Image source={require('@/assets/images/Logo/Logo Cuadrado.png')} style={styles.logoLogin} />
+                    <Image source={logos[themeName]} style={styles.logoLogin} />
                     
                 </View>
                 <View style={styles.loginBox}>

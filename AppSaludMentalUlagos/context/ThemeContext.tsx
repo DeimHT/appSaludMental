@@ -7,6 +7,7 @@ type Theme = 'light' | 'dark';
 interface ThemeContextProps {
     theme: Theme;
     toggleTheme: () => void;
+    themeName: string;
 }
 
 interface ThemeContextProps{
@@ -17,11 +18,13 @@ interface ThemeContextProps{
 const ThemeContext = createContext<ThemeContextProps>({
     theme: 'light',
     toggleTheme: () => {},
+    themeName: 'Tema azul',
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const colorScheme = Appearance.getColorScheme();
     const [theme, setTheme] = useState<Theme>(colorScheme === 'dark' ? 'dark' : 'light');
+    const themeName = theme === 'dark' ? 'Tema morado' : 'Tema azul';
 
     useEffect(() => {
         const loadTheme = async () => {
@@ -43,7 +46,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider value={{ theme, toggleTheme, themeName }}>
             {children}
         </ThemeContext.Provider>
     );
