@@ -1,30 +1,37 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { Appearance } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import type { ThemeName } from '@/utils/logos';
+
 
 type Theme = 'light' | 'dark';
+
 
 interface ThemeContextProps {
     theme: Theme;
     toggleTheme: () => void;
-    themeName: string;
-}
-
-interface ThemeContextProps{
-    theme: Theme;
-    toggleTheme: () => void;
+    themeName: ThemeName;
+    setThemeByName: (themeName: ThemeName) => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps>({
     theme: 'light',
     toggleTheme: () => {},
     themeName: 'Tema azul',
+    setThemeByName: () => {},
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     const colorScheme = Appearance.getColorScheme();
     const [theme, setTheme] = useState<Theme>(colorScheme === 'dark' ? 'dark' : 'light');
-    const themeName = theme === 'dark' ? 'Tema morado' : 'Tema azul';
+
+    const setThemeByName = async (name: ThemeName) => {
+        const newTheme = name === 'Tema morado' ? 'dark' : 'light';
+        setTheme(newTheme);
+        await AsyncStorage.setItem('appTheme', newTheme);
+    };
+
+    const themeName: ThemeName = theme === 'dark' ? 'Tema morado' : 'Tema azul';
 
     useEffect(() => {
         const loadTheme = async () => {
@@ -46,7 +53,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     };
 
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme, themeName }}>
+        <ThemeContext.Provider value={{ theme, toggleTheme, themeName, setThemeByName }}>
             {children}
         </ThemeContext.Provider>
     );

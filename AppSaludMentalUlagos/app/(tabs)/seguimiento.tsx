@@ -1,11 +1,21 @@
 import React from "react";
+import { useRouter } from 'expo-router'
 import { View, Text, TouchableOpacity, Image, ScrollView, useColorScheme } from "react-native";
 import { createStyles } from "@/constants/Styles";
 import { useTheme } from "@/context/ThemeContext";
+import { nuevoDiario, diario } from "@/utils/cards";
 
 const SeguimientoScreen = () => {
-  const { theme } = useTheme();
+  const router = useRouter();
+  const { theme, themeName } = useTheme();
   const styles = createStyles(theme);
+  const irAEmociones = (categoria: string) => {
+    router.push({
+      pathname: '/emociones/[categoria]',
+      params: { categoria }
+    })
+  }
+
   return (
     <View style={styles.container}>
     
@@ -18,11 +28,21 @@ const SeguimientoScreen = () => {
                   ¿Cómo te sientes en esta mañana?
                 </Text>
                 <View style={styles.emojiContainerIndex}>
-                  <Text style={styles.emojiIndex}>😣</Text>
-                  <Text style={styles.emojiIndex}>😞</Text>
-                  <Text style={styles.emojiIndex}>😐</Text>
-                  <Text style={styles.emojiIndex}>😊</Text>
-                  <Text style={styles.emojiIndex}>😁</Text>
+                  <TouchableOpacity onPress={() => irAEmociones('Muy mal')}>
+                    <Image source={require('@/assets/images/Icons/Emojis/Muy mal.png')} style={styles.emojiIndex} />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => irAEmociones('Mal')}>
+                    <Image source={require('@/assets/images/Icons/Emojis/Mal.png')} style={styles.emojiIndex} />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => irAEmociones('Neutral')}>
+                    <Image source={require('@/assets/images/Icons/Emojis/Neutral.png')} style={styles.emojiIndex} />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => irAEmociones('Bien')}>
+                    <Image source={require('@/assets/images/Icons/Emojis/Bien.png')} style={styles.emojiIndex} />
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => irAEmociones('Muy bien')}>
+                    <Image source={require('@/assets/images/Icons/Emojis/Muy bien.png')} style={styles.emojiIndex} />
+                  </TouchableOpacity>
                 </View>
                 <View style={styles.emojiLabels}>
                   <Text style={styles.emojiLabel}>Muy mal</Text>
@@ -36,7 +56,7 @@ const SeguimientoScreen = () => {
         {/* Sección: Último estado de ánimo */}
         <TouchableOpacity style={styles.optionCard}>
           <View style={styles.optionContent}>
-            <Text style={styles.emoji}>😊</Text>
+            <Image source={require('@/assets/images/Icons/Emojis/Bien.png')} style={styles.emoji} />
             <Text style={styles.optionText}>Anoche te sentias alegre</Text>
           </View>
           <Text style={styles.optionArrow}>›</Text>
@@ -47,7 +67,7 @@ const SeguimientoScreen = () => {
         <TouchableOpacity style={styles.optionCard}>
           <View style={styles.optionContent}>
             <Image
-              source={require('@/assets/images/Icons/Agregar pagina 3.png')}
+              source={nuevoDiario[themeName]}
               style={styles.optionIconImage}
             />
             <Text style={styles.optionText}>Escribe una nueva página para tu Diario de Pensamientos</Text>
@@ -59,7 +79,7 @@ const SeguimientoScreen = () => {
         <TouchableOpacity style={styles.optionCard}>
           <View style={styles.optionContent}>
             <Image
-              source={require('@/assets/images/Icons/Diario 3.png')}
+              source={diario[themeName]}
               style={styles.optionIconImage}
             />
             <Text style={styles.optionText}>Revisa tu Diario de Pensamientos</Text>

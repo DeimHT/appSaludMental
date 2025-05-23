@@ -1,11 +1,13 @@
+import { Image } from 'react-native';
 import { Tabs } from 'expo-router';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTheme } from '@/context/ThemeContext';
 import { CustomTabBar } from '@/components/CustomTabBar';
 import CustomHeader from '@/components/CustomHeader';
+import { home, seguimiento, actividades } from '@/utils/navBar';
 
 export default function TabLayout() {
-  const { theme } = useTheme();
+  const { theme, themeName } = useTheme();
 
   return (
     <Tabs
@@ -19,7 +21,7 @@ export default function TabLayout() {
         options={{
           title: 'Inicio',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="home-outline" size={24} color={color} />
+            <Image source={home[themeName]} style={{ width: 24, height: 24, tintColor: color }} />
           ),
         }}
       />
@@ -28,7 +30,7 @@ export default function TabLayout() {
         options={{
           title: 'Seguimiento',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="clipboard-text-outline" size={24} color={color} />
+            <Image source={seguimiento[themeName]} style={{ width: 24, height: 24, tintColor: color }} />
           ),
         }}
       />
@@ -37,7 +39,7 @@ export default function TabLayout() {
         options={{
           title: 'Actividades',
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="cards-outline" size={24} color={color} />
+            <Image source={actividades[themeName]} style={{ width: 24, height: 24, tintColor: color }} />
           ),
         }}
       />

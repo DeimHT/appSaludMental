@@ -3,10 +3,11 @@ import { useRouter } from 'expo-router'
 import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { createStyles } from "@/constants/Styles";
 import { useTheme } from "@/context/ThemeContext";
+import { calendario, actividades, crecimiento } from "@/utils/cards";
 
 const HomeScreen = () => {
   const router = useRouter();
-  const { theme } = useTheme();
+  const { theme, themeName } = useTheme();
   const styles = createStyles(theme);
 
   const irAEmociones = (categoria: string) => {
@@ -28,19 +29,19 @@ const HomeScreen = () => {
         </Text>
         <View style={styles.emojiContainerIndex}>
           <TouchableOpacity onPress={() => irAEmociones('Muy mal')}>
-          <Text style={styles.emojiIndex}>😣</Text>
+            <Image source={require('@/assets/images/Icons/Emojis/Muy mal.png')} style={styles.emojiIndex} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => irAEmociones('Mal')}>
-          <Text style={styles.emojiIndex}>😞</Text>
+            <Image source={require('@/assets/images/Icons/Emojis/Mal.png')} style={styles.emojiIndex} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => irAEmociones('Neutral')}>
-          <Text style={styles.emojiIndex}>😐</Text>
+            <Image source={require('@/assets/images/Icons/Emojis/Neutral.png')} style={styles.emojiIndex} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => irAEmociones('Bien')}>
-          <Text style={styles.emojiIndex}>😊</Text>
+            <Image source={require('@/assets/images/Icons/Emojis/Bien.png')} style={styles.emojiIndex} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => irAEmociones('Muy bien')}>
-          <Text style={styles.emojiIndex}>😁</Text>
+            <Image source={require('@/assets/images/Icons/Emojis/Muy bien.png')} style={styles.emojiIndex} />
           </TouchableOpacity>
         </View>
         <View style={styles.emojiLabels}>
@@ -56,7 +57,7 @@ const HomeScreen = () => {
         <TouchableOpacity style={styles.optionCard}>
           <View style={styles.optionContent}>
             <Image
-              source={require('@/assets/images/Icons/Calendario 2.png')}
+              source={calendario[themeName]}
               style={styles.optionIconImage}
             />
             <Text style={styles.optionText}>Revisar emociones pasadas</Text>
@@ -67,7 +68,7 @@ const HomeScreen = () => {
         <TouchableOpacity style={styles.optionCard}>
           <View style={styles.optionContent}>
             <Image
-              source={require('@/assets/images/Icons/Actividades 2.png')}
+              source={actividades[themeName]}
               style={styles.optionIconImage}
             />
             <Text style={styles.optionText}>Revisa tus actividades diarias</Text>
@@ -78,7 +79,7 @@ const HomeScreen = () => {
         <TouchableOpacity style={styles.optionCard}>
           <View style={styles.optionContent}>
             <Image
-              source={require('@/assets/images/Icons/Crecimiento 2.png')}
+              source={crecimiento[themeName]}
               style={styles.optionIconImage}
             />
             <Text style={styles.optionText}>Explora formas de mejorar tu día</Text>

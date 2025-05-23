@@ -4,10 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { createStyles } from "@/constants/Styles";
 import { useTheme } from "@/context/ThemeContext";
+import { logoH } from "@/utils/logos";
+import { telefono, config } from "@/utils/header";
 
 const CustomHeader = () => {
     const router = useRouter();
-    const { theme } = useTheme();
+    const { theme, themeName } = useTheme();
     const styles = createStyles(theme);
     
 
@@ -16,7 +18,7 @@ const CustomHeader = () => {
             <View style={styles.header}>
                 <View style={styles.leftSection}>
                     <TouchableOpacity onPress={() => router.push('/')}>
-                        <Image source={require('@/assets/images/Logo/Logo Horizontal.png')} style={stylesHeader.logo} />
+                        <Image source={logoH[themeName]} style={stylesHeader.logo} />
                     </TouchableOpacity>
                     
                 </View>
@@ -24,12 +26,12 @@ const CustomHeader = () => {
                 <View style={styles.rightSection}>
                     <View style={styles.celButton}>
                         <TouchableOpacity>
-                            <Image source={require('@/assets/images/Icons/Telefono.png')} style={stylesHeader.telefono} />
+                            <Image source={telefono[themeName]} style={stylesHeader.telefono} />
                         </TouchableOpacity>
                     </View>
                     <View style={styles.configButton}>
                         <TouchableOpacity onPress={() => router.push('/config/configuraciones')}>
-                            <Ionicons name="settings-outline" size={28} color="#B1C5DD" />
+                            <Image source={config[themeName]} style={stylesHeader.telefono} />
                         </TouchableOpacity>
                     </View>
                 </View>

@@ -26,12 +26,12 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             flexDirection: "row", 
             gap: 20,},
         celButton: { 
-            backgroundColor: '#134793', // color de fondo cuando está activo
+            backgroundColor: colors.tabIconSelected, // color de fondo cuando está activo
             borderRadius: 30,
             paddingHorizontal: 8,
             paddingVertical: 8, },
         configButton: { 
-            backgroundColor: '#134793', // color de fondo cuando está activo
+            backgroundColor: colors.tabIconSelected, // color de fondo cuando está activo
             borderRadius: 30,
             paddingHorizontal: 8,
             paddingVertical: 8, },
@@ -54,17 +54,38 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             top: 40,
             left: 20,
         },
+
         profileButton: {
+            gap: 2,
+            borderRadius: 10,
+            minWidth: "75%",
+            backgroundColor: colors.card,
+            marginBottom: 20,
+            minHeight: 55,
             flexDirection: "row",
             alignItems: "center",
-            backgroundColor: colors.card,
-            paddingVertical: 12,
-            paddingHorizontal: 40,
+            justifyContent: "center",
+        },
+        configsButton: {
+            minWidth: "75%",
             borderRadius: 10,
+            backgroundColor: colors.card,
             marginBottom: 20,
-            width: "75%",
+            minHeight: 55,
+            alignItems: "center",
+            justifyContent: "center",
         },
         buttonText: {
+            color: colors.text,
+            fontSize: 16,
+            textAlign: "center",
+        },
+        buttonProfileText: {
+            color: colors.text,
+            fontSize: 16,
+            marginLeft: 10,
+        },
+        buttonLogOutText: {
             color: colors.text,
             fontSize: 16,
             marginLeft: 10,
@@ -79,21 +100,30 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             paddingVertical: 5,
             paddingHorizontal: 20,
             borderRadius: 10,
-            width: "75%",
+            minWidth: "75%",
             justifyContent: "space-between",
+            marginBottom: 20,
+            minHeight: 55,
         },
         switchText: {
             color: colors.text,
             fontSize: 16,
         },
         logoutButton: {
+            flexDirection: "row",
+            justifyContent: 'center',
             backgroundColor: colors.alert,
             paddingVertical: 12,
             paddingHorizontal: 40,
             borderRadius: 10,
-            width: "75%",
+            minWidth: "75%",
             alignItems: "center",
             marginBottom: 100,
+        },
+        logoutIcon: {
+            width: 24,
+            height: 24,
+            resizeMode: 'contain',
         },
         headerIcons: {
             flexDirection: "row",
@@ -122,7 +152,7 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             marginBottom: 10,
         },
         checkbox: {
-            borderColor: colors.title2,
+            color: colors.title, 
         },
         activityList: {
             flexDirection: "row",
@@ -165,7 +195,10 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
         marginTop: 10,
         },
         emoji: {
-        fontSize: 20,
+            width: 60,
+            height: 60,
+            marginRight: 12,
+            resizeMode: 'contain',
         },
         contentConfig: {
             alignItems: "center", 
@@ -231,7 +264,7 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             borderRadius: 12,
             borderWidth: 2,
             borderColor: colors.title2,
-            backgroundColor: '#CCD9EC',
+            backgroundColor: colors.background2,
             marginBottom: 16,
             fontSize: 15,
         },
@@ -245,6 +278,11 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             borderRadius: 24,
             marginTop: 10,
             width: '100%',
+        },
+        loginButtonIcon: {
+            width: 24,
+            height: 24,
+            resizeMode: 'contain',
         },
         loginButtonText: {
             color: colors.text,
@@ -324,7 +362,10 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
         },
         
         emojiIndex: {
-            fontSize: 40,
+            width: 40,
+            height: 40,
+            marginRight: 12,
+            resizeMode: 'contain',
         },
         
         emojiLabels: {
@@ -337,6 +378,11 @@ export function createStyles(colorScheme: 'light' | 'dark' = 'light') {
             fontSize: 14,
             color: colors.text,
             fontWeight: 'bold',
+            textAlign: 'center',
+        },
+        errorTextLogin: {
+            marginBottom: 12,
+            fontSize: 13,
             textAlign: 'center',
         },
     });

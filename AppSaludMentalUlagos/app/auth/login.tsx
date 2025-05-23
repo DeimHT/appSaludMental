@@ -6,7 +6,9 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '@/config/firebase'; 
 import { useTheme } from "@/context/ThemeContext";
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
-import { logos } from '@/utils/logos.ts';
+import { logos } from '@/utils/logos';
+import { Colors } from "@/constants/Colors";
+import { logIn } from '@/utils/botones';
 
 import { createStyles } from "@/constants/Styles";
 
@@ -16,6 +18,8 @@ export default function LoginScreen() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const styles = createStyles(theme);
+    const colors = Colors[theme];
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleLogin = async () => {
         try {
@@ -23,7 +27,30 @@ export default function LoginScreen() {
             console.log('Inicio de sesión exitoso');
             router.replace('/'); 
         } catch (error: any) {
-            Alert.alert('Error', error.message);
+            let message = 'Ha ocurrido un error inesperado. Intenta nuevamente.';
+
+            switch (error.code) {
+                case 'auth/invalid-email':
+                    message = 'El correo electrónico no es válido.';
+                    break;
+                case 'auth/user-not-found':
+                    message = 'No se encontró una cuenta con ese correo electrónico.';
+                    break;
+                case 'auth/invalid-credential':
+                    message = 'Correo o contraseña incorrectos.';
+                    break;
+                case 'auth/too-many-requests':
+                    message = 'Demasiados intentos. Intenta más tarde.';
+                    break;
+                case 'auth/missing-password':
+                    message = 'Por favor, ingresa tu contraseña.';
+                    break;
+                default:
+                    message = error.message;
+                    break;
+            }
+
+            setErrorMessage(message);
         }
     };
 
@@ -45,6 +72,7 @@ export default function LoginScreen() {
                         onChangeText={setEmail}
                         style={styles.inputLogin}
                         keyboardType="email-address"
+                        placeholderTextColor={colors.title3}
                     />
 
                     <Text style={styles.labelLogin}>Contraseña:</Text>
@@ -54,10 +82,16 @@ export default function LoginScreen() {
                         value={password}
                         onChangeText={setPassword}
                         style={styles.inputLogin}
+                        placeholderTextColor={colors.title3}
                     />
+                    {errorMessage !== '' && (
+                        <Text style={[styles.errorTextLogin, { color: 'red' }]}>
+                            {errorMessage}
+                        </Text>
+                    )}
 
                     <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-                        <Ionicons name="log-in-outline" size={24} color="white" />
+                        <Image source={logIn[themeName]} style={styles.loginButtonIcon} />
                         <Text style={styles.loginButtonText}>Iniciar Sesión</Text>
                     </TouchableOpacity>
 
